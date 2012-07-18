@@ -42,6 +42,8 @@ module VideoApi
     # Enable escaping HTML in JSON.
     config.active_support.escape_html_entities_in_json = true
 
+    config.assets.initialize_on_precompile = false
+
     config.assets.precompile += %w( active_admin.css active_admin/print.css active_admin.js )
 
     # Use SQL instead of Active Record's schema dumper when creating the database.
