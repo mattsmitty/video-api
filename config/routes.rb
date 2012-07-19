@@ -3,7 +3,7 @@ VideoApi::Application.routes.draw do
 
   devise_for :admin_users, ActiveAdmin::Devise.config
 
-  resources :apps
+  get "/apps/:name" => "apps#show"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
