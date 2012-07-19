@@ -10,7 +10,7 @@ gem "activeadmin"
 gem "rabl"
 gem "youtube_it"
 gem "vimeo"
-
+gem "roo"
 group :development do
   gem 'sqlite3'
   gem "pry-rails"
