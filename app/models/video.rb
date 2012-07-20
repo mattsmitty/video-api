@@ -2,7 +2,7 @@ class Video < ActiveRecord::Base
   attr_accessible :name, :video_url, :duration, :category_id
   belongs_to :category
   has_many :video_thumbnails, :dependent => :destroy
-  validates_presence_of :name, :video_url, :category_id, :duration
+  validates_presence_of :name, :video_url, :category_id
 
   def get_meta_youtube(url)
     client = YouTubeIt::Client.new
