@@ -1,7 +1,7 @@
 class AppsController < ApplicationController
 
   def show
-    @app = App.find_by_name(params[:name])
+    @app = App.find(params[:id])
   end
 
 
