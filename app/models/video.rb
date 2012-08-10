@@ -31,14 +31,12 @@ class Video < ActiveRecord::Base
       if record.video_url.include?("you")
         video_meta = get_meta_youtube(record.video_url)
         thumbnails = video_meta.thumbnails
-        thumbnails.each do |t|
-          record.video_thumbnails.create(:video_thumbnail_url => t.url)
+        thumbnails.each_with_index do |t, index|
+          record.video_thumbnails.create(:video_thumbnail_url => t.url) if index == 3
         end
       elsif record.video_url.include?("vimeo")
         video_meta = get_meta_vimeo(record.video_url)
         record.video_thumbnails.find_or_create_by_video_thumbnail_url(:video_thumbnail_url => video_meta[0]["thumbnail_small"])
-        record.video_thumbnails.create(:video_thumbnail_url => video_meta[0]["thumbnail_medium"])
-        record.video_thumbnails.create(:video_thumbnail_url => video_meta[0]["thumbnail_large"])
       end
     end
   end
